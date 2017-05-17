@@ -346,12 +346,12 @@
                 <a href="http://library.marist.edu" class="map_link"><img src="http://library.marist.edu/images/home.png" class="fox2"/></a>
                 > Forms > Reserve Forms
             </p>
-            <div id="researcherInfo"><h1 class="page_head" style="float: none;">User Agreement Initiation Form</h1></br>
+            <div id="researcherInfo"><h1 class="page_head" style="float: none;">User Agreement Initiation Form</h1>
 
                 <div id="requestStatus" style="width: auto; height:40px; margin-bottom: 7px; margin-top: -15px; color:#000000; font-size: 12pt; text-align: center; padding-top: 10px; display: none;">
                 </div></br>
-                <div id ="progressstatus"></div></br></br>
-                <div class="progress"></div></br>
+                <div id ="progressstatus"></div>
+                <div class="progress"></div>
                 <h2>Researcher's Information:</h2>
                 <div class="formcontents">
                     <label class="label">Date:</label><br/><input type="text" id="datepicker" class="textinput" style="width: 100px;"/>
@@ -416,6 +416,8 @@
                                 <option value="Scrapbook Collection">Scrapbook Collection</option>
                                 <option value="Stewart Newburgh Airport Records">Stewart Newburgh Airport Records</option>
                                 <option value="College Archives - Photograph Collection">College Archives - Photograph Collection</option>
+                                <option value="College Archives">College Archives</option>
+                                <option value="College Archives - Audio-Visual Collection">College Archives - Audio-Visual Collection</option>
                                 <option value="Stanley Becchetti Collection">Stanley Becchetti Collection</option>
                                 <option value="Brother Cornelius Russell Papers">Brother Cornelius Russell Papers</option>
                                 <option value="Student Newspapers: The Record and The Circle">Student Newspapers: The Record and The Circle</option>
@@ -473,7 +475,7 @@
             <br />
             &#169; Copyright 2007-2016 Marist College. All Rights Reserved.
 
-            <a href="http://www.marist.edu/disclaimers.html" target="_blank" >Disclaimers</a> | <a href="http://www.marist.edu/privacy.html" target="_blank" >Privacy Policy</a> | <a href="http://library.marist.edu/ack.html?iframe=true&width=50%&height=62%" rel="prettyphoto[iframes]">Acknowledgements</a>
+            <a href="http://www.marist.edu/disclaimers.html" target="_blank" >Disclaimers</a> | <a href="http://www.marist.edu/privacy.html" target="_blank" >Privacy Policy</a> | <a href=<?php echo base_url("?c=usragr&m=ack");?> target="_blank">Acknowledgements</a>
         </p>
     </div>
 

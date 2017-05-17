@@ -427,11 +427,12 @@
 				/*	if($('select#NumConditions').val()!=10){
 
 				 }else*/ if ($('input#condofuse').prop("checked") == false) {
-					alert("Please agree to the Terms & Conditions of use");
+					alert("Please review the Terms & Conditions of use.");
+					$("html, body").animate({scrollTop: 1000}, 600);
 
 				} else if ($('input#accept').prop('checked') == false) {
-					alert("please agree to the copyright notice");
-
+					alert("Please review the copyright notice.");
+					$("html, body").animate({scrollTop: 1000}, 600);
 
 				} else {
 					//validations
@@ -445,6 +446,7 @@
 					} else if ($('input#initials').val() == "") {
 						$('input#initials').css('border', '1px solid red');
 						$('div#3-contents').show();
+						$("html, body").animate({scrollTop: 1000}, 600);
 					} else if ($(this).prop("checked") == false) {
 						$('#accept-cond').css({'color': '#b31b1b', 'font-weight': 'bold'});
 						$('#cond_of_use').css({'color': '#b31b1b', 'font-weight': 'bold'});
@@ -580,7 +582,7 @@
 													setTimeout(function () {
 														$('.progress').addClass('hide');
 													$("#progressstatus").html("<p color='black'></p>");
-													$('#requestStatus').show().css('background', '#66cc00').append("Form submitted successfully. We'll get back to you shortly");
+													$('#requestStatus').show().css('background', '#66cc00').append("Form submitted successfully. We'll get back to you shortly.");
 													output = '<div class="success">' + response.text + '</div>';
 													}, 5000);
 												}
@@ -622,6 +624,7 @@
 												} else {
 
 													$('#requestStatus').show().css('background', '#66cc00').append("Form submitted successfully. We'll get back to you shortly");
+													$("html, body").animate({scrollTop: 0}, 600);
 
 												}
 											}
@@ -634,7 +637,8 @@
 
 								}
 							} else {
-								$('#requestStatus').show().css('background', '#b31b1b').append("Something wrong with the form. Contact Administrator");
+								$('#requestStatus').show().css('background', '#b31b1b').append("Something wrong with the form. Contact Administrator.");
+								$("html, body").animate({scrollTop: 0}, 600);
 							}
 
 						});
@@ -644,7 +648,7 @@
 						document.getElementById("save").disabled = true;
 
 						<?php }else{ ?>
-						alert("you cannot edit the form..! as the form submitted already");
+						alert("This form has already been submitted. Unfortunately cannot be edited now!");
 						<?php } ?>
 					}
 				}
@@ -655,7 +659,7 @@
 					}, 3000);
 
 				}
-				$("html, body").animate({scrollTop: 0}, 600);
+				//$("html, body").animate({scrollTop: 0}, 600);
 			}); //end of submit function
 			$('div#request_input').clone();
 		}); // end of document function
@@ -1105,7 +1109,7 @@ Orders are completed in the order that they are received.
 			<br />
 			&#169; Copyright 2007-2016 Marist College. All Rights Reserved.
 
-			<a href="http://www.marist.edu/disclaimers.html" target="_blank" >Disclaimers</a> | <a href="http://www.marist.edu/privacy.html" target="_blank" >Privacy Policy</a> | <a href="http://library.marist.edu/ack.html?iframe=true&width=50%&height=62%" rel="prettyphoto[iframes]">Acknowledgements</a>
+		<a href="http://www.marist.edu/disclaimers.html" target="_blank" >Disclaimers</a> | <a href="http://www.marist.edu/privacy.html" target="_blank" >Privacy Policy</a> | <a href=<?php echo base_url("?c=usragr&m=ack");?> target="_blank">Acknowledgements</a>
 		</p>
 	</div>
 	<script>

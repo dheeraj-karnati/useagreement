@@ -720,7 +720,7 @@ Orders are completed in the order that they are received.
                 <?php
                 if(sizeof($chatList)>0){
                     ?>
-                  <div class="accordion" id="1"><h4 align="left" id="1" class="accordion">Conversations</h4><span class="click">Click to Open/Close</span></div>
+                  <div class="accordion" id="1"><h4 align="left" id="1">Conversations</h4><span class="click">Click to Open/Close</span></div>
                 <?php  }?>
                 <div id="1-contents">
 
@@ -767,16 +767,16 @@ Orders are completed in the order that they are received.
                 <button class="btn" type="submit" id="approve">Approve</button>
                 <button class="btn" type="button" id="disapprove">Return for review</button></br>
 
-
-
-            </div>
-
-                <div id="completeTransaction" align="center" style="visibility: hidden;">
+				<div id="completeTransaction" style="visibility: hidden;">
                     <label class="label">Message:</label><br/><textarea id="message" name='message' rows="8" cols="75" style="display: block; margin-bottom: 10px;" ></textarea>
                     <button class="btn" type="button" id="complete">Complete Transaction</button>
 
                     <!--button class='btn' type="button" id="complete" name="submit" value="Complete Transaction"-->
                 </div>
+
+            </div>
+
+                
         </div> <!-- content -->
     </div>
 
@@ -786,8 +786,8 @@ Orders are completed in the order that they are received.
             <br />
             &#169; Copyright 2007-2016 Marist College. All Rights Reserved.
 
-            <a href="http://www.marist.edu/disclaimers.html" target="_blank" >Disclaimers</a> | <a href="http://www.marist.edu/privacy.html" target="_blank" >Privacy Policy</a> | <a href="http://library.marist.edu/ack.html?iframe=true&width=50%&height=62%" rel="prettyphoto[iframes]">Acknowledgements</a>
-        </p>
+            <a href="http://www.marist.edu/disclaimers.html" target="_blank" >Disclaimers</a> | <a href="http://www.marist.edu/privacy.html" target="_blank" >Privacy Policy</a> | <a href=<?php echo base_url("?c=usragr&m=ack");?> target="_blank">Acknowledgements</a>
+      </p>
     </div>
     <script>
         $('div.accordion').click(function(){
@@ -890,7 +890,7 @@ if(isset($_POST['submit'])){
     $ci->email->initialize($config);
 
     $ci->email->from('maristarchives@gmail.com', "Marist Archives");
-    $ci->email->cc('dheeraj.karnati1@marist.edu');
+   // $ci->email->cc('dheeraj.karnati1@marist.edu');
     $ci->email->to($emailId);
     $ci->email->reply_to('maristarchives@gmail.com', "Marist Archives");
     $ci->email->message($message_body);
