@@ -46,9 +46,7 @@
 				font-size: 16px;
 				vertical-align: top;
 			}
-			.ask_text_input {
-				width: 276px;
-			}
+			
 		</style>
 		
 		<script type="text/javascript">

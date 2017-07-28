@@ -1,3 +1,3 @@
 <script>
-	window.location = "http://localhost/usragr/?c=usragr&m=admin";
+	window.location = "http://library.marist.edu/archives/useagreement/?c=usragr&m=admin";
 </script>

@@ -72,6 +72,7 @@ class CI_Email {
 	var	$_attach_name	= array();
 	var	$_attach_type	= array();
 	var	$_attach_disp	= array();
+	var $_attach_new_name = array();
 	var	$_protocols		= array('mail', 'sendmail', 'smtp');
 	var	$_base_charsets	= array('us-ascii', 'iso-2022-');	// 7-bit charsets (excluding language suffix)
 	var	$_bit_depths	= array('7bit', '8bit');
@@ -159,6 +160,7 @@ class CI_Email {
 
 		if ($clear_attachments !== FALSE)
 		{
+			$this->_attach_new_name = array();
 			$this->_attach_name = array();
 			$this->_attach_type = array();
 			$this->_attach_disp = array();
@@ -405,8 +407,9 @@ class CI_Email {
 	 * @param	string
 	 * @return	void
 	 */
-	public function attach($filename, $disposition = 'attachment')
+	public function attach($filename, $disposition = 'attachment', $new_name = NULL)
 	{
+		$this->_attach_new_name[] = $new_name;
 		$this->_attach_name[] = $filename;
 		$this->_attach_type[] = $this->_mime_types(pathinfo($filename, PATHINFO_EXTENSION));
 		$this->_attach_disp[] = $disposition; // Can also be 'inline'  Not sure if it matters
@@ -1139,7 +1142,9 @@ class CI_Email {
 		for ($i=0; $i < count($this->_attach_name); $i++)
 		{
 			$filename = $this->_attach_name[$i];
-			$basename = basename($filename);
+			//$basename = basename($filename);
+			$basename = ($this->_attach_new_name[$i] === NULL)
+				? basename($filename) : $this->_attach_new_name[$i];
 			$ctype = $this->_attach_type[$i];
 
 			if ( ! file_exists($filename))
@@ -2079,7 +2084,8 @@ class CI_Email {
 						'doc'	=>	'application/msword',
 						'word'	=>	'application/msword',
 						'xl'	=>	'application/excel',
-						'eml'	=>	'message/rfc822'
+						'eml'	=>	'message/rfc822',
+			            'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
 					);
 
 		return ( ! isset($mimes[strtolower($ext)])) ? "application/x-unknown-content-type" : $mimes[strtolower($ext)];
